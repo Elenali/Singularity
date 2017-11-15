@@ -21,7 +21,7 @@ export PYTHONPATH=/usr/share/pdb2pqr:
 ### install keras + tensorflow + other useful packages
 ###
 apt-get update
-apt-get install -y wget libhdf5-dev graphviz locales python python-pip git xvfb python-vtk pdb2pqr python-pandas
+apt-get install -y wget libhdf5-dev graphviz locales git xvfb python-vtk pdb2pqr python-pandas python3-dev python3-pip
 locale-gen en_US.UTF-8
 apt-get clean
 
@@ -33,10 +33,13 @@ gunzip /usr/local/bin/CX.c.gz
 gcc -o /usr/local/bin/cx /usr/local/bin/CX.c -lm
 rm /usr/local/bin/CX.c
 
+pip3 install tensorflow-gpu==1.3.0
+pip3 install keras==2.0.8
+pip3 install Pillow scikit-learn pandas matplotlib notebook ipython setuptools
 pip install --upgrade pip
-pip install tensorflow-gpu==1.4.0
-pip install keras==2.0.8
-pip install setuptools wheel Pillow scikit-learn matplotlib ipython==5.5.0
+##pip install tensorflow-gpu==1.4.0
+##pip install keras==2.0.8
+##pip install setuptools wheel Pillow scikit-learn matplotlib ipython==5.5.0
 pip install h5py
 pip install mayavi
 pip install --upgrade notebook
