@@ -21,36 +21,23 @@ export PYTHONPATH=/usr/share/pdb2pqr:
 ### install keras + tensorflow + other useful packages
 ###
 apt-get update
-apt-get install -y wget libhdf5-dev graphviz locales git xvfb python-vtk pdb2pqr python-pandas python3-dev python3-pip
+apt-get install -y wget libhdf5-dev graphviz locales git python-pandas python3-dev python3-pip
 locale-gen en_US.UTF-8
 apt-get clean
 
-wget ftp://ftp.cmbi.ru.nl/pub/software/dssp/dssp-2.0.4-linux-i386 -O /usr/local/bin/dssp
-chmod a+x /usr/local/bin/dssp
-
-wget ftp://ftp.icgeb.trieste.it/pub/CX/CX.c.gz -O /usr/local/bin/CX.c.gz
-gunzip /usr/local/bin/CX.c.gz
-gcc -o /usr/local/bin/cx /usr/local/bin/CX.c -lm
-rm /usr/local/bin/CX.c
 
 pip3 install tensorflow-gpu==1.3.0
 pip3 install keras==2.0.8
 pip3 install Pillow scikit-learn pandas matplotlib notebook ipython setuptools
-pip install --upgrade pip
+pip3 install --upgrade pip
 ##pip install tensorflow-gpu==1.4.0
 ##pip install keras==2.0.8
-##pip install setuptools wheel Pillow scikit-learn matplotlib ipython==5.5.0
-pip install h5py
-pip install mayavi
-pip install --upgrade notebook
-pip install cython
-pip install Biopython
+##pip3 install setuptools wheel Pillow scikit-learn matplotlib ipython
+pip3 install h5py
+pip3 install --upgrade notebook
+pip3 install cython
+pip3 install Biopython
 
-wget http://freesasa.github.io/freesasa-2.0.2.tar.gz
-tar -xzf freesasa-2.0.2.tar.gz
-cd freesasa-2.0.2
-./configure CFLAGS=-fPIC --enable-python-bindings --disable-json --disable-xml
-make && make install
 
 ###
 ### destination for NIH HPC bind mounts
